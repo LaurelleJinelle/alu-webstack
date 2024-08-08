@@ -37,12 +37,12 @@ frontend covah1-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend covah1-backend
+        default_backend jinelle-backend
 
 frontend covah-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.covah1.tech.pem
+	bind *:443 ssl crt /etc/haproxy/certs/www.jinelle.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	default_backend covah1-backend
+	default_backend jinelle-backend
 
 backend covah1-backend
         balance roundrobin
