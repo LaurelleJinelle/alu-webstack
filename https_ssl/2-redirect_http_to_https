@@ -33,18 +33,18 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend covah1-frontend-http
+frontend jinelle-frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend covah1-backend
+        default_backend jinelle-backend
 
-frontend covah-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.covah1.tech.pem
+frontend jinelle-frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.jinelle.tech.pem
 	http-request set-header X-Forwarded-Proto https
-	default_backend covah1-backend
+	default_backend jinelle-backend
 
-backend covah1-backend
+backend jinelle-backend
         balance roundrobin
         server 6161-web-01 54.242.56.36:80 check
         server 6161-web-02 3.89.164.21:80 check
